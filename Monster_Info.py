@@ -29,4 +29,7 @@ class Golem(Monster):
         super().__init__(hp, defense, speed)
         if self.attacks is None:
             self.attacks = ["Smash", "Harden", "Laser"]
+
+class Dragon(Monster):
+    pass
 # Different types of monsters.

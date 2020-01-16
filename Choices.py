@@ -1,8 +1,9 @@
 class TreeNode:
 
-    def __init__(self, story_piece):
+    def __init__(self, story_piece, chosen_index=None):
         self.story_piece = story_piece
         self.choices = []
+        self.chosen_index = chosen_index
 
     def add_child(self, node):
         self.choices.append(node)
@@ -15,9 +16,9 @@ class TreeNode:
             if choice not in ["1", "2"]:
                 print("Invalid choice. Try Again.")
             else:
-                chosen_index = int(choice)
-                chosen_index -= 1
-                chosen_child = story_node.choices[chosen_index]
+                self.chosen_index = int(choice)
+                self.chosen_index -= 1
+                chosen_child = story_node.choices[self.chosen_index]
                 print(chosen_child.story_piece)
                 story_node = chosen_child
 
